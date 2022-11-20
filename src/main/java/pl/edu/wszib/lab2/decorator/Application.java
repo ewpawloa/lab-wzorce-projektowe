@@ -6,7 +6,9 @@ public class Application {
         OrderService simpleOrderService = new SimpleOrderService();
         Integer testName = simpleOrderService.handle("Test name");
 
-        OrderService decoratedOrderService = new TestOrderServiceDecorator(new LogAroundOrderServiceDecorator(simpleOrderService));
+        OrderService decoratedOrderService = new LogAroundOrderServiceDecorator(simpleOrderService);
         decoratedOrderService.handle("Test name");
+
+        // TODO zad: utworzyć Decorator, który dla nazw zawierających słówko "test" podwaja zwracaną wartość
     }
 }
