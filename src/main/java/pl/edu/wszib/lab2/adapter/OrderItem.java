@@ -3,12 +3,17 @@ package pl.edu.wszib.lab2.adapter;
 import java.math.BigDecimal;
 
 public class OrderItem {
-    private final String productId;
-    private final BigDecimal quantity;
-    private final BigDecimal price;
+    public final String productId;
+    public final String name;
+    public final BigDecimal quantity;
+    public final BigDecimal price;
 
-    public OrderItem(String productId, BigDecimal quantity, BigDecimal price) {
+    public OrderItem(String productId,
+                     String name,
+                     BigDecimal quantity,
+                     BigDecimal price) {
         this.productId = productId;
+        this.name = name;
         this.quantity = quantity;
         this.price = price;
     }
@@ -17,6 +22,7 @@ public class OrderItem {
     public String toString() {
         return "OrderItem{" +
                 "productId='" + productId + '\'' +
+                ", name='" + name + '\'' +
                 ", quantity=" + quantity +
                 ", price=" + price +
                 '}';

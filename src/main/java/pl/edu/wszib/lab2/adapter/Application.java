@@ -1,5 +1,6 @@
 package pl.edu.wszib.lab2.adapter;
 
+import pl.edu.wszib.lab2.adapter.product.ProductService;
 import pl.edu.wszib.lab2.adapter.toadapt.Order;
 import pl.edu.wszib.lab2.adapter.toadapt.OrderId;
 import pl.edu.wszib.lab2.adapter.toadapt.OrderItem;
@@ -24,7 +25,7 @@ public class Application {
         OrderService orderService = new OrderService();
 
 //        orderService.handle(order); tak nie można
-        OrderAdapter orderAdapter = new OrderAdapter(orderService);
+        OrderAdapter orderAdapter = new OrderAdapter(orderService, new ProductService());
         orderAdapter.handle(order);
     }
 }
