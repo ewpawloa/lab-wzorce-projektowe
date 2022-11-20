@@ -4,11 +4,13 @@ public class Application {
 
     public static void main(String[] args) {
         OrderService simpleOrderService = new SimpleOrderService();
-        Integer testName = simpleOrderService.handle("Test name");
 
         OrderService decoratedOrderService = new LogAroundOrderServiceDecorator(simpleOrderService);
         decoratedOrderService.handle("Test name");
 
-        // TODO zad: utworzyć Decorator, który dla nazw zawierających słówko "test" podwaja zwracaną wartość
+        var testServiceDecorator = new TestOrderServiceDecorator(decoratedOrderService);
+        var doubleTestOrderService = new DoubleTestOrderServiceDecorator(testServiceDecorator);
+        OrderService decoratedDoubleTestOrderService = new LogAroundOrderServiceDecorator(doubleTestOrderService);
+        decoratedDoubleTestOrderService.handle("atest");
     }
 }
